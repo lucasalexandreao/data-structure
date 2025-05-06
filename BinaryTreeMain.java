@@ -17,6 +17,7 @@ public class BinaryTreeMain {
         bt1.preOrder();
         bt1.inOrder();
         bt1.postOrder();
-        
+        bt1.byLevel();
+
     }
 }
