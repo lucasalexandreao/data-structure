@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 
 public class BinaryTree {
@@ -23,7 +24,7 @@ public class BinaryTree {
         System.out.println();
     }
 
-    public void preOrder(Node node) {
+    private void preOrder(Node node) {
 
         if (node != null) {
             System.out.print(node.getValue() + " ");
@@ -33,12 +34,36 @@ public class BinaryTree {
         
     }
 
+    public void preOrderIterative() {
+
+        Node node = this.root;
+
+        if (node != null) {
+            Stack<Node> nodeStack = new Stack<>();
+            nodeStack.push(node);
+
+            while (!nodeStack.isEmpty()) {
+                Node current = nodeStack.pop();
+                System.out.print(current.getValue() + " ");
+
+                if (current.getRight() != null)
+                    nodeStack.push(current.getRight());
+                
+                if (current.getLeft() != null)
+                    nodeStack.push(current.getLeft());
+            }
+
+            System.out.println();
+        }
+
+    }
+
     public void inOrder() {
         inOrder(this.root);
         System.out.println();
     }
 
-    public void inOrder(Node node) {
+    private void inOrder(Node node) {
 
         if (node != null) {
             inOrder(node.getLeft());
@@ -53,7 +78,7 @@ public class BinaryTree {
         System.out.println();
     }
 
-    public void postOrder(Node node) {
+    private void postOrder(Node node) {
 
         if (node != null) {
             postOrder(node.getLeft());
@@ -61,14 +86,14 @@ public class BinaryTree {
             System.out.print(node.getValue() + " ");
         }
 
-    }
+    }   
 
     public void byLevel() {
         byLevel(this.root);
         System.out.println();
     }
 
-    public void byLevel(Node node) {
+    private void byLevel(Node node) {
 
         Node current = null;
 

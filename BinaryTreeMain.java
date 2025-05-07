@@ -14,9 +14,20 @@ public class BinaryTreeMain {
         Node node1 = new Node(1, node2, node3);
 
         BinaryTree bt1 = new BinaryTree(node1);
+
+        System.out.println("\nPré-ordem recursiva:");
         bt1.preOrder();
+
+        System.out.println("\nPré-ordem iterativa:");
+        bt1.preOrderIterative();
+
+        System.out.println("\nEm ordem recursiva:");
         bt1.inOrder();
+
+        System.out.println("\nPós-ordem recursiva:");
         bt1.postOrder();
+
+        System.out.println("\nEm largura (por nível):");
         bt1.byLevel();
 
     }
